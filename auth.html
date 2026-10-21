@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>인증 완료 · 오링</title>
+<meta name="robots" content="noindex">
+<style>
+:root { --bg:#ffffff; --fg:#111113; --muted:#55555d; --brand:#c62828; --soft:#f4f4f5; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0e0e10; --fg:#fafafa; --muted:#b4b4bc; --brand:#ef5350; --soft:#1c1c20; } }
+* { box-sizing: border-box; }
+body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; background:var(--bg); color:var(--fg);
+  font: 16px/1.6 -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif; padding:24px 16px; }
+.card { max-width:420px; width:100%; text-align:center; }
+.logo { width:72px; height:72px; border-radius:18px; background:var(--brand); margin:0 auto 20px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:34px; font-weight:800; }
+h1 { font-size:24px; margin:0 0 8px; letter-spacing:-0.5px; }
+p { color:var(--muted); margin:0 0 24px; }
+a.btn { display:block; background:var(--brand); color:#fff; text-decoration:none; font-weight:700; padding:16px; border-radius:14px; font-size:17px; }
+.note { font-size:14px; margin-top:16px; background:var(--soft); padding:12px; border-radius:12px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">O</div>
+  <h1 id="title">이메일 인증이 끝났어요</h1>
+  <p id="msg">휴대폰에서 오링 앱을 열고 로그인하면 바로 시작할 수 있어요.</p>
+  <a class="btn" id="open" href="kr.boxingcommunity.app://login-callback">오링 앱 열기</a>
+  <div class="note">PC에서 이 페이지를 열었다면, 휴대폰의 오링 앱에서 가입한 이메일과 비밀번호로 로그인해 주세요.</div>
+</div>
+<script>
+  // 메일 링크의 인증 정보를 그대로 앱으로 넘김 (휴대폰에서 열었을 때 자동 로그인)
+  var tail = location.search + location.hash;
+  var link = 'kr.boxingcommunity.app://login-callback' + tail;
+  document.getElementById('open').href = link;
+  if (/error/.test(tail)) {
+    document.getElementById('title').textContent = '링크가 만료됐거나 이미 쓰였어요';
+    document.getElementById('msg').textContent = '앱에서 로그인해 보시고, 안 되면 인증 메일을 다시 받아 주세요.';
+  } else if (/Android|iPhone|iPad/i.test(navigator.userAgent) && tail.length > 1) {
+    location.href = link;
+  }
+</script>
+</body>
+</html>

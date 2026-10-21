@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>안내 · 오링</title>
+<meta name="description" content="오링 안내">
+<style>
+:root { --bg:#ffffff; --fg:#111113; --muted:#55555d; --line:#e4e4e7; --brand:#c62828; --soft:#f4f4f5; --todo:#fff3bf; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#0e0e10; --fg:#fafafa; --muted:#b4b4bc; --line:#2a2a30; --brand:#ef5350; --soft:#1c1c20; --todo:#5c4a00; }
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg);
+  font: 16px/1.75 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  word-break: keep-all; overflow-wrap: anywhere; }
+main { max-width: 760px; margin: 0 auto; padding: 28px 16px 64px; }
+header { border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+header a { color: var(--brand); font-weight: 800; text-decoration: none; }
+nav { display:flex; flex-wrap:wrap; gap:8px 16px; padding: 10px 0 14px; font-size: 15px; }
+nav a { color: var(--muted); text-decoration: none; }
+nav a[aria-current] { color: var(--fg); font-weight: 700; }
+h1 { font-size: 28px; line-height: 1.35; margin: 24px 0 8px; letter-spacing: -0.02em; }
+h2 { font-size: 20px; margin: 32px 0 8px; padding-top: 8px; border-top: 1px solid var(--line); }
+h3 { font-size: 17px; margin: 24px 0 6px; }
+p, li { color: var(--fg); }
+a { color: var(--brand); }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 15px; display: block; overflow-x: auto; }
+th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: var(--soft); }
+td:first-child, th:first-child { min-width: 5.5em; }
+.todo { background: var(--todo); padding: 0 4px; border-radius: 4px; }
+.banner { background: var(--todo); padding: 10px 14px; border-radius: 10px; font-size: 15px; margin: 16px 0; }
+.cards { display: grid; gap: 12px; margin-top: 20px; }
+.cards a { display:block; padding: 16px 18px; border:1px solid var(--line); border-radius: 14px; color: var(--fg); text-decoration:none; font-weight:700; }
+.cards a span { display:block; font-weight:400; color: var(--muted); font-size: 15px; }
+footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+<header><a href="index.html">오링</a><nav><a href="index.html" aria-current=page>안내</a><a href="privacy.html">개인정보 처리방침</a><a href="terms.html">이용약관</a><a href="delete-account.html">계정 삭제 안내</a></nav></header>
+
+<h1>오링</h1><p>생활체육 복서들의 커뮤니티 앱입니다. 아래에서 정책 문서를 볼 수 있어요.</p><div class=cards><a href="privacy.html">개인정보 처리방침<span>어떤 정보를 왜 모으고 언제 지우는지</span></a><a href="terms.html">이용약관<span>서비스 이용 규칙</span></a><a href="delete-account.html">계정 삭제 안내<span>앱에서 또는 이메일로 계정과 데이터 삭제하기</span></a></div>
+<footer>오링</footer>
+</main>
+</body>
+</html>
